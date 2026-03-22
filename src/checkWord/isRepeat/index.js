@@ -1,13 +1,12 @@
 const fs = require('node:fs');
-const {FILENAME} = require('../../../vars');
 
-module.exports = (original, {log}) => {
-  if (!fs.existsSync(FILENAME)) {
+module.exports = (original, {log, fileName}) => {
+  if (!fs.existsSync(fileName)) {
     return false;
   }
 
   const originals = fs
-    .readFileSync(FILENAME, 'utf-8')
+    .readFileSync(fileName, 'utf-8')
     .split('\n')
     .filter((line) => line)
     .map((word) => word.split(' - ')[0]);

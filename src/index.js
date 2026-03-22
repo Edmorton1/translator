@@ -5,12 +5,13 @@ const translateWord = require('./translateWord');
 /**
  * @typedef {Object} Extensions
  * @property {() => void} log
+ * @property {string} fileName
  * */
 
 class Translator {
-  /** @type {Extensions} */
   #ext;
 
+  /** @param {Extensions} ext */
   constructor(ext) {
     this.#ext = ext;
   }
