@@ -21,8 +21,18 @@ class Translator {
     return checkWord(word, this.#ext);
   };
 
-  save = (original, translate) => {
-    return saveWord(original, translate, this.#ext);
+  /**
+   * @param {string} original
+   * @param {string} translate
+   * @param {string} [folderPath] If not passed, the path from ext.folderPath is used
+   */
+  save = (original, translate, folderPath = null) => {
+    const resolvedFolderPath = folderPath ?? this.#ext.folderPath;
+
+    return saveWord(original, translate, {
+      ...this.#ext,
+      folderPath: resolvedFolderPath
+    });
   };
 
   translate = (original) => {
