@@ -21,22 +21,22 @@ class Translator {
     return checkWord(word, this.#ext);
   };
 
-  /**
-   * @param {string} original
-   * @param {string} translate
-   * @param {string} [folderPath] If not passed, the path from ext.folderPath is used
-   */
-  save = (original, translate, folderPath = null) => {
-    const resolvedFolderPath = folderPath ?? this.#ext.folderPath;
-
-    return saveWord(original, translate, {
-      ...this.#ext,
-      folderPath: resolvedFolderPath
-    });
+  save = (original, translate) => {
+    return saveWord(original, translate, this.#ext);
   };
 
   translate = (original) => {
     return translateWord(original, this.#ext);
+  };
+
+  /**
+   * @param {keyof Extensions} key
+   */
+  setExt = (key, value) => {
+    this.#ext = {
+      ...this.#ext,
+      [key]: value
+    };
   };
 }
 
