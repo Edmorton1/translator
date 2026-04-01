@@ -16,8 +16,5 @@
   "devDependencies": {
     "@biomejs/biome": "2.3.15",
     "nodemon": "3.1.14"
-  },
-  "dependencies": {
-    "anki-cli": "github:Edmorton1/anki-cli"
   }
 }
