@@ -33,6 +33,8 @@ class Translator {
    * @param {keyof Extensions} key
    */
   setExt = (key, value) => {
+    this.#ext.log('update ext', key, value);
+
     this.#ext = {
       ...this.#ext,
       [key]: value

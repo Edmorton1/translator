@@ -6,6 +6,8 @@ module.exports = {
     `https://translate.google.com/?hl=ru&sl=en&tl=ru&text=${encodeURIComponent(original)}&op=translate`,
 
   addInFile: (value, fileName, {folderPath}) => {
+    this.#ext.log('folder path: ', folderPath);
+
     const filePath = path.join(folderPath, fileName);
 
     if (!fs.existsSync(filePath)) {
