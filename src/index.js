@@ -7,6 +7,7 @@ const translateWord = require('./translateWord');
  * @property {() => void} log
  * @property {string} fileName
  * @property {string} folderPath
+ * @property {'google' | 'lingva'} model
  * */
 
 class Translator {
