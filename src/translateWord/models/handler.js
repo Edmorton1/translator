@@ -1,11 +1,13 @@
 /**
- * @param {(res: import('node-fetch').Response) => string | null} resHandle
+ * @param {async(res: import('node-fetch').Response) => string | null} resHandle
  */
 module.exports = async (url, resHandle, {log, model}) => {
   const res = await fetch(url);
 
   if (res.status === 429) {
-    log('Too many requests. Try later or change IP or change model in program settings\n');
+    log(
+      'Too many requests. Try later or change IP or change model in program settings\n'
+    );
     return null;
   }
 
@@ -15,5 +17,5 @@ module.exports = async (url, resHandle, {log, model}) => {
     return null;
   }
 
-  return resHandle;
+  return await resHandle(res);
 };
